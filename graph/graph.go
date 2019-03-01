@@ -41,7 +41,9 @@ func (g *ItemGraph) AddEdge(n1, n2 *Node) {
 		g.edges = make(map[Node][]*Node)
 	}
 	g.edges[*n1] = append(g.edges[*n1], n2)
-	g.edges[*n2] = append(g.edges[*n2], n1)
+	if *n1 != *n2 {
+		g.edges[*n2] = append(g.edges[*n2], n1)
+	}
 	g.lock.Unlock()
 }
 

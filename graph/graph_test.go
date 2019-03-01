@@ -27,6 +27,7 @@ func fillGraph() {
 	g.AddEdge(&nC, &nE)
 	g.AddEdge(&nE, &nF)
 	g.AddEdge(&nD, &nA)
+	g.AddEdge(&nD, &nD)
 }
 
 func TestAdd(t *testing.T) {
