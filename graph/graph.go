@@ -70,20 +70,20 @@ func (g *ItemGraph) Traverse(f func(*Node)) {
 	q.New()
 	n := g.nodes[0]
 	q.Enqueue(*n)
-	visited := make(map[*Node]bool)
+	visited := make(map[Node]bool)
 	for {
 		if q.IsEmpty() {
 			break
 		}
 		node := q.Dequeue()
-		visited[node] = true
+		visited[*node] = true
 		near := g.edges[*node]
 
 		for i := 0; i < len(near); i++ {
 			j := near[i]
-			if !visited[j] {
+			if !visited[*j] {
 				q.Enqueue(*j)
-				visited[j] = true
+				visited[*j] = true
 			}
 		}
 		if f != nil {
