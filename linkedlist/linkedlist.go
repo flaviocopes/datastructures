@@ -18,7 +18,7 @@ type Node struct {
 }
 
 // ItemLinkedList the linked list of Items
-type ItemBinarySearchTree struct {
+type ItemLinkedList struct {
 	head *Node
 	size int
 	lock sync.RWMutex
